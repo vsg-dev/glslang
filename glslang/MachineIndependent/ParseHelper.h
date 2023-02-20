@@ -80,7 +80,7 @@ public:
                       EProfile in_profile, const SpvVersion& in_spvVersion, EShLanguage in_language,
                       TInfoSink& in_infoSink, bool in_forwardCompatible, EShMessages in_messages,
                       const TString* entryPoint = nullptr)
-          : TParseVersions(interm, in_version, in_profile, in_spvVersion, in_language, infoSink, in_forwardCompatible, in_messages),
+          : TParseVersions(interm, in_version, in_profile, in_spvVersion, in_language, in_infoSink, in_forwardCompatible, in_messages),
             scopeMangler("::"),
             symbolTable(in_symbolTable),
             statementNestingLevel(0), loopNestingLevel(0), structNestingLevel(0), blockNestingLevel(0), controlFlowNestingLevel(0),
