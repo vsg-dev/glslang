@@ -54,18 +54,18 @@ namespace glslang {
 //
 class TParseVersions {
 public:
-    TParseVersions(TIntermediate& interm, int version, EProfile profile,
-                   const SpvVersion& spvVersion, EShLanguage language, TInfoSink& infoSink,
-                   bool forwardCompatible, EShMessages messages)
+    TParseVersions(TIntermediate& interm, int in_version, EProfile in_profile,
+                   const SpvVersion& in_spvVersion, EShLanguage in_language, TInfoSink& in_infoSink,
+                   bool in_forwardCompatible, EShMessages in_messages)
         :
 #if !defined(GLSLANG_WEB)
-        forwardCompatible(forwardCompatible),
-        profile(profile),
+        forwardCompatible(in_forwardCompatible),
+        profile(in_profile),
 #endif
-        infoSink(infoSink), version(version), 
-        language(language),
-        spvVersion(spvVersion), 
-        intermediate(interm), messages(messages), numErrors(0), currentScanner(nullptr) { }
+        infoSink(in_infoSink), version(in_version),
+        language(in_language),
+        spvVersion(in_spvVersion),
+        intermediate(interm), messages(in_messages), numErrors(0), currentScanner(nullptr) { }
     virtual ~TParseVersions() { }
     void requireStage(const TSourceLoc&, EShLanguageMask, const char* featureDesc);
     void requireStage(const TSourceLoc&, EShLanguage, const char* featureDesc);
