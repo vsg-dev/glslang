@@ -5458,7 +5458,7 @@ yyreduce:
   case 31: /* function_call_header_with_parameters: function_call_header assignment_expression  */
 #line 527 "MachineIndependent/glslang.y"
                                                  {
-        TParameter param = { 0, new TType };
+        TParameter param = { 0, new TType, 0 };
         param.type->shallowCopy((yyvsp[0].interm.intermTypedNode)->getType());
         (yyvsp[-1].interm).function->addParameter(param);
         (yyval.interm).function = (yyvsp[-1].interm).function;
@@ -5470,7 +5470,7 @@ yyreduce:
   case 32: /* function_call_header_with_parameters: function_call_header_with_parameters COMMA assignment_expression  */
 #line 534 "MachineIndependent/glslang.y"
                                                                        {
-        TParameter param = { 0, new TType };
+        TParameter param = { 0, new TType, 0 };
         param.type->shallowCopy((yyvsp[0].interm.intermTypedNode)->getType());
         (yyvsp[-2].interm).function->addParameter(param);
         (yyval.interm).function = (yyvsp[-2].interm).function;
@@ -6350,7 +6350,7 @@ yyreduce:
         }
         parseContext.reservedErrorCheck((yyvsp[0].lex).loc, *(yyvsp[0].lex).string);
 
-        TParameter param = {(yyvsp[0].lex).string, new TType((yyvsp[-1].interm.type))};
+        TParameter param = {(yyvsp[0].lex).string, new TType((yyvsp[-1].interm.type)), 0};
         (yyval.interm).loc = (yyvsp[0].lex).loc;
         (yyval.interm).param = param;
     }
@@ -6373,7 +6373,7 @@ yyreduce:
         parseContext.arraySizeRequiredCheck((yyvsp[0].interm).loc, *(yyvsp[0].interm).arraySizes);
         parseContext.reservedErrorCheck((yyvsp[-1].lex).loc, *(yyvsp[-1].lex).string);
 
-        TParameter param = { (yyvsp[-1].lex).string, type };
+        TParameter param = { (yyvsp[-1].lex).string, type, 0};
 
         (yyval.interm).loc = (yyvsp[-1].lex).loc;
         (yyval.interm).param = param;
@@ -6439,7 +6439,7 @@ yyreduce:
   case 124: /* parameter_type_specifier: type_specifier  */
 #line 1147 "MachineIndependent/glslang.y"
                      {
-        TParameter param = { 0, new TType((yyvsp[0].interm.type)) };
+        TParameter param = { 0, new TType((yyvsp[0].interm.type)), 0 };
         (yyval.interm).param = param;
         if ((yyvsp[0].interm.type).arraySizes)
             parseContext.arraySizeRequiredCheck((yyvsp[0].interm.type).loc, *(yyvsp[0].interm.type).arraySizes);
