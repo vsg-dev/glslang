@@ -150,17 +150,17 @@ EProfile EDesktopProfile = static_cast<EProfile>(ENoProfile | ECoreProfile | ECo
 #else
     const Versioning Es300Desktop130Version[] = { { EEsProfile,      0, 300, 0, nullptr },
                                                   { EDesktopProfile, 0, 130, 0, nullptr },
-                                                  { EBadProfile } };
+                                                  { EBadProfile,     0, 0, 0, nullptr } };
     const Versioning* Es300Desktop130 = &Es300Desktop130Version[0];
 
     const Versioning Es310Desktop420Version[] = { { EEsProfile,      0, 310, 0, nullptr },
                                                   { EDesktopProfile, 0, 420, 0, nullptr },
-                                                  { EBadProfile } };
+                                                  { EBadProfile,     0, 0, 0, nullptr} };
     const Versioning* Es310Desktop420 = &Es310Desktop420Version[0];
 
     const Versioning Es310Desktop450Version[] = { { EEsProfile,      0, 310, 0, nullptr },
                                                   { EDesktopProfile, 0, 450, 0, nullptr },
-                                                  { EBadProfile } };
+                                                  { EBadProfile,     0, 0, 0, nullptr } };
     const Versioning* Es310Desktop450 = &Es310Desktop450Version[0];
 #endif
 
@@ -269,14 +269,14 @@ const BuiltInFunction BaseFunctions[] = {
     { EOpMix,              "mix",              3,   TypeIU,    ClassLB,      Es310Desktop450 },
 #endif
 
-    { EOpNull }
+    { EOpNull,              nullptr,            0,  {},        {},           nullptr }
 };
 
 const BuiltInFunction DerivativeFunctions[] = {
     { EOpDPdx,             "dFdx",             1,   TypeF,     ClassRegular, nullptr },
     { EOpDPdy,             "dFdy",             1,   TypeF,     ClassRegular, nullptr },
     { EOpFwidth,           "fwidth",           1,   TypeF,     ClassRegular, nullptr },
-    { EOpNull }
+    { EOpNull,              nullptr,            0,  {},        {},           nullptr }
 };
 
 // For functions declared some other way, but still use the table to relate to operator.
@@ -330,7 +330,7 @@ const CustomFunction CustomFunctions[] = {
     { EOpTextureProjGrad,       "textureProjGrad",       nullptr },
     { EOpTextureProjGradOffset, "textureProjGradOffset", nullptr },
 
-    { EOpNull }
+    { EOpNull,                  nullptr,                 nullptr }
 };
 
 // For the given table of functions, add all the indicated prototypes for each

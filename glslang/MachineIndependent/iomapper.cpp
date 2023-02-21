@@ -87,8 +87,7 @@ public:
             addGlobalReference(base->getAccessName());
 
         if (target) {
-            TVarEntryInfo ent = {base->getId(), base, ! traverseAll};
-            ent.stage = intermediate.getStage();
+            TVarEntryInfo ent{base->getId(), base, ! traverseAll, -1, -1, -1, -1, -1, intermediate.getStage()};
             TVarLiveMap::iterator at = target->find(
                 ent.symbol->getAccessName()); // std::lower_bound(target->begin(), target->end(), ent, TVarEntryInfo::TOrderById());
             if (at != target->end() && at->second.id == ent.id)
@@ -126,7 +125,8 @@ public:
         else
             return;
 
-        TVarEntryInfo ent = { base->getId() };
+        TVarEntryInfo ent = { base->getId(), nullptr, false, -1, -1, -1, -1, -1, EShLangCount};
+
         // Fix a defect, when block has no instance name, we need to find its block name
         TVarLiveMap::const_iterator at = source->find(base->getAccessName());
         if (at == source->end())

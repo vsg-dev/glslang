@@ -7268,7 +7268,7 @@ TIntermTyped* TParseContext::vkRelaxedRemapFunctionCall(const TSourceLoc& loc, T
             realFunc.addParameter(TParameter().copyParam((*function)[i]));
         }
 
-        TParameter tmpP = { nullptr, &uintType };
+        TParameter tmpP = { nullptr, &uintType, nullptr };
         realFunc.addParameter(TParameter().copyParam(tmpP));
         arguments = intermediate.growAggregate(arguments, intermediate.addConstantUnion(1, loc, true));
 
@@ -7285,7 +7285,7 @@ TIntermTyped* TParseContext::vkRelaxedRemapFunctionCall(const TSourceLoc& loc, T
             realFunc.addParameter(TParameter().copyParam((*function)[i]));
         }
 
-        TParameter tmpP = { nullptr, &uintType };
+        TParameter tmpP = { nullptr, &uintType, nullptr };
         realFunc.addParameter(TParameter().copyParam(tmpP));
         arguments = intermediate.growAggregate(arguments, intermediate.addConstantUnion(-1, loc, true));
 
@@ -8041,7 +8041,7 @@ TIntermTyped* TParseContext::constructBuiltIn(const TType& type, TOperator op, T
     }
 
     TIntermTyped* newNode;
-    TOperator basicOp;
+    TOperator basicOp = EOpNull;
 
     //
     // First, convert types as needed.
