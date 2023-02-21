@@ -1297,6 +1297,7 @@ void TIntermediate::addBiShapeConversion(TOperator op, TIntermTyped*& lhsNode, T
         // matrix multiply does not change shapes
         if (lhsNode->isMatrix() && rhsNode->isMatrix())
             return;
+        break;
     case EOpAdd:
     case EOpSub:
     case EOpDiv:

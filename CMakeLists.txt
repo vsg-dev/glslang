@@ -162,7 +162,9 @@ if(${CMAKE_CXX_COMPILER_ID} MATCHES "GNU")
                         -Wunused-parameter -Wunused-value  -Wunused-variable -Wunused-but-set-parameter -Wunused-but-set-variable -fno-exceptions)
     # add_compile_options(-Wno-reorder)  # disable this from -Wall, since it happens all over, but not required in Feb 2023.
 
-    add_compile_options(-Wshadow)
+#    add_compile_options(-Wextra)
+    add_compile_options(-Wall -Wparentheses -Wno-long-long -Wno-import -Wreturn-type -Wmissing-braces -Wunknown-pragmas -Wmaybe-uninitialized -Wshadow -Wunused -Wno-misleading-indentation -Wextra)
+
 
     if(NOT ENABLE_RTTI)
         add_compile_options(-fno-rtti)

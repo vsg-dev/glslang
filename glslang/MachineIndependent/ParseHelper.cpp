@@ -8085,6 +8085,7 @@ TIntermTyped* TParseContext::constructBuiltIn(const TType& type, TOperator op, T
             newNode = intermediate.addBuiltInFunctionCall(node->getLoc(), EOpConstructUVec2, false, newSrcNode, type);
             return newNode;
         }
+        break;
     case EOpConstructUVec3:
     case EOpConstructUVec4:
     case EOpConstructUint:
@@ -8105,6 +8106,7 @@ TIntermTyped* TParseContext::constructBuiltIn(const TType& type, TOperator op, T
             newNode = intermediate.addBuiltInFunctionCall(node->getLoc(), EOpPackUint2x32, true, node, type);
             return newNode;
         }
+        break;
 #ifndef GLSLANG_WEB
 
     case EOpConstructDVec2:
