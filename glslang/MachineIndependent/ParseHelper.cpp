@@ -8706,6 +8706,8 @@ void TParseContext::declareBlock(const TSourceLoc& loc, TTypeList& typeList, con
         // Create the block reference type. If it was forward-declared, detect that
         // as a referent struct type with no members. Replace the referent type with
         // blockType.
+
+
         TType blockNameType(EbtReference, blockType, *blockName);
         TVariable* blockNameVar = new TVariable(blockName, blockNameType, true);
         if (! symbolTable.insert(*blockNameVar)) {
