@@ -22,3 +22,26 @@ tools/
 # Random OS stuff
 .DS_Store
 ._*
+
+# CMake generated files
+*CMakeCache.txt
+*CMakeFiles/
+*CTestTestfile.cmake
+*cmake_install.cmake
+*Makefile
+compile_commands.json
+DartConfiguration.tcl
+OGLCompilersDLL/OGLCompilerTargets.cmake
+SPIRV/SPIRVTargets.cmake
+SPIRV/SPVRemapperTargets.cmake
+StandAlone/glslang-default-resource-limitsTargets.cmake
+StandAlone/glslangValidator
+StandAlone/glslangValidatorTargets.cmake
+StandAlone/spirv-remap
+StandAlone/spirv-remapTargets.cmake
+glslang-config-version.cmake
+glslang-config.cmake
+glslang-config.cmake.in
+glslang/OSDependent/Unix/OSDependentTargets.cmake
+glslang/glslangTargets.cmake
+hlsl/HLSLTargets.cmake
