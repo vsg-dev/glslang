@@ -1111,7 +1111,7 @@ Id Builder::createDebugLocalVariable(Id type, char const*const name, size_t cons
     inst->addIdOperand(currentDebugScopeId.top()); // scope id
     inst->addIdOperand(makeUintConstant(NonSemanticShaderDebugInfo100FlagIsLocal)); // flags id
     if(argNumber != 0) {
-        inst->addIdOperand(makeUintConstant(argNumber));
+        inst->addIdOperand(makeUintConstant(static_cast<unsigned>(argNumber)));
     }
 
     constantsTypesGlobals.push_back(std::unique_ptr<Instruction>(inst));
@@ -2064,7 +2064,7 @@ Function* Builder::makeFunctionEntry(Decoration precision, Id returnType, const 
 
     if (emitNonSemanticShaderDebugInfo) {
         assert(paramTypes.size() == paramNames.size());
-        for(size_t p = 0; p < paramTypes.size(); ++p)
+        for(unsigned p = 0; p < static_cast<unsigned>(paramTypes.size()); ++p)
         {
             auto getParamTypeId = [this](Id const& paramTypeId) {
                 if (isPointerType(paramTypeId) || isArrayType(paramTypeId)) {
