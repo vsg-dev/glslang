@@ -45,3 +45,4 @@ glslang-config.cmake.in
 glslang/OSDependent/Unix/OSDependentTargets.cmake
 glslang/glslangTargets.cmake
 hlsl/HLSLTargets.cmake
+include/
