@@ -2094,8 +2094,8 @@ Function* Builder::makeFunctionEntry(Decoration precision, Id returnType, const 
     return function;
 }
 
-Id Builder::makeDebugFunction(Function* function, Id nameId, Id funcTypeId) {
-    assert(function != nullptr);
+Id Builder::makeDebugFunction(Function* /*function*/, Id nameId, Id funcTypeId) {
+    // assert(function != nullptr); // function isn't used the body at all so have commented out,
     assert(nameId != 0);
     assert(funcTypeId != 0);
     assert(debugId[funcTypeId] != 0);
